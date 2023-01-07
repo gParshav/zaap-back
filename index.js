@@ -12,7 +12,11 @@
 const express = require('express')
 const app = express();
 const dotenv = require('dotenv')
+const userRoute = require('./routes/users')
+const authRoute = require('./routes/auth')
+const postRoute = require('./routes/post')
 const mongoose = require('mongoose')
+const cors = require('cors')
 dotenv.config();
 
 app.use(express.json())
@@ -29,12 +33,16 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(console.log("Connected to Mongo"))
 .catch((err) => console.log(err))
 
-// app.use('/api/auth', authRoute)
-// app.use('/api/users', userRoute)
+
 // app.use('/api/posts', postRoute)
 // app.use('/api/categories', catRoute)
+app.use(cors({
+    origin: "http://localhost:3000",
+    methods:["GET", "POST"]
+}))
+app.use('/api/auth', authRoute)
+app.use('/api/users', userRoute)
+app.use('/api/posts', postRoute)
 
-
-
-const port = 6000;
+const port = 80;
 app.listen(port, console.log(`server is listening on port ${port}`));

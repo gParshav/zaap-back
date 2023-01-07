@@ -6,25 +6,22 @@ const PostSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-    desc:{
+    customer_name:{
         type: String,
         required:true
     },
-    photo:{
-        type: String,
-        required:false,
-    },
-
-    username:{
+    email:{
         type: String,
         required:true
     },
-
-    categories:{
-        type: String,
-        required:false
-    }
-
+    amount:{
+        type: Number,
+        required:true
+    },
+    status:{
+        type: Boolean,
+        required:true
+    },
 
 }, {timestamps: true})
 
