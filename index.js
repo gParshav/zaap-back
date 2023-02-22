@@ -37,7 +37,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // app.use('/api/posts', postRoute)
 // app.use('/api/categories', catRoute)
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: ['http://localhost:3000', 'https://zaap-front.vercel.app'],
     methods:["GET", "POST"]
 }))
 app.use('/api/auth', authRoute)
