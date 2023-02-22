@@ -44,5 +44,5 @@ app.use('/api/auth', authRoute)
 app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
 
-const port = 80;
+const port = process.env.PORT || 80;
 app.listen(port, console.log(`server is listening on port ${port}`));

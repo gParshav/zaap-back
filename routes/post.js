@@ -28,17 +28,40 @@ router.get("/:id", async (req, res) => {
     }
   });
 
-router.get("/", async (req, res) => {
+// router.get("/", async (req, res) => {
 
-  try {
-    const param = req.query;
-    console.log(param)
-    const post = await Post.find(param);
-    res.status(200).json(post);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+//   try {
+//     const param = req.query;
+//     // console.log(param)
+//     const post = await Post.find(param);
+//     let totalval = 0;
+//     for (let i = 0; i < post.length; i++) {
+//       totalval+=post[i].amount
+//     }
+//     console.log(post.length, totalval)
+//     res.status(200).json(post);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
     
-});
+// });
+
+// router.get("/a", async (req, res) => {
+
+//   try {
+//     const param = req.query;
+//     // console.log(param)
+//     const post = await Post.find(param);
+//     let totalval = 0;
+//     for (let i = 0; i < post.length; i++) {
+//       totalval+=post[i].amount
+//     }
+//     res.status(200).json(post.length, totalval);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+    
+// });
+
 
 module.exports = router
